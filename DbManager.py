@@ -210,10 +210,10 @@ class DbManager:
 
 
 
-a = DbManager()
-b = DbManager()
-a = Dbproxy()
-b = Dbproxy()
+#a = DbManager()
+#b = DbManager()
+#a = Dbproxy()
+#b = Dbproxy()
 
 #a.init_table()
 #a.init_table_tickets()
@@ -242,7 +242,7 @@ b = Dbproxy()
 
 #print(a.return_ticket("admin"))
 #print(b.get_ticket("admin"))
-ss = {'login' : 'log-vvv', 'password' : 'tic-vvv'}
-print(b.new_ticket( ss , "00000"))
+#ss = {'login' : 'log-vvv', 'password' : 'tic-vvv'}
+#print(b.new_ticket( ss , "00000"))
 
 #print(a.read_all_table_tickets())
