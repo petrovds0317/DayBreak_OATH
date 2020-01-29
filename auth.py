@@ -1,14 +1,16 @@
-from   flask     import Flask, request
+from flask import Flask, request, render_template
 import requests
 import random
 import json
-from utilities import *
+from utilities import validate, check, make_error_message, validate_ticket, check_ticket, make_error_message_ticket
+from DbManager import Dbproxy, DbManager
 
 
 # Генерация тикета
-ticket_number = round(random.random()*10000)
+#ticket_number = round(random.random()*10000)
 
-app=Flask(__name__)
+db_manager = Dbproxy()
+app = Flask(__name__)
 
 ### ПРОВЕРКА ЛОГИНА И ПАРОЛЯ
 
@@ -18,7 +20,9 @@ def auth():
     a = request.get_json()
     if validate(a) == True:
         if check(a) == True:
-            return str(ticket_number)
+            new_ticket = db_manager.ticket_number()                         
+            return 
+            
         else:
             return make_error_message("1")
     else:

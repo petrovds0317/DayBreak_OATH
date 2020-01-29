@@ -1,4 +1,7 @@
+from DbManager import Dbproxy
+import json
 
+db_manager = Dbproxy()
 
 def validate(x):
     if x == None:
@@ -12,7 +15,7 @@ def validate(x):
 def check(x):
     login = x["login"]
     password = x["password"]
-    if login == "admin" and password == "1111":
+    if password == db_manager.get_password(login):
         return True
     else:
         return False
@@ -38,7 +41,7 @@ def validate_ticket(y):
 def check_ticket(y):
     login = y["login"]
     ticket = y["ticket"]
-    if login == "admin" and ticket == "5555":
+    if login == db_manager.get_login(ticket) and ticket == db_manager.get_ticket(login):
         return True
     else:
         return False
@@ -49,3 +52,13 @@ def make_error_message_ticket(code_ticket):
     d["code"] = code_ticket
     d["message"] = messages2[code_ticket]
     return json.dumps(d)
+
+
+#-----------------------------------------------------
+#Проверка функции чек , validate
+"""a = { "login" :"admin", "password" :"1111"}
+b = check(a)
+print(b)
+#-----------------------------------------------------
+c = validate(a)
+print(c)"""
