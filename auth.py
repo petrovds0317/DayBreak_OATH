@@ -44,7 +44,7 @@ def take_ticket():
         return make_error_message_ticket("2")
 
 if __name__=='__main__':
-    app.run(port=5002)
+    app.run(port=5002, host = "0.0.0.0" )
 
 
 

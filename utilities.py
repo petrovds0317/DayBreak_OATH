@@ -54,11 +54,3 @@ def make_error_message_ticket(code_ticket):
     return json.dumps(d)
 
 
-#-----------------------------------------------------
-#Проверка функции чек , validate
-"""a = { "login" :"admin", "password" :"1111"}
-b = check(a)
-print(b)
-#-----------------------------------------------------
-c = validate(a)
-print(c)"""
